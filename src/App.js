@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
+import Search from "./component/Search/Search";
 import './App.css';
+import Login from "./component/Login/Login";
+import nobbieheader from "./IMG/nobbieheader.png"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component
+{
+    constructor() {
+        super()
+        this.state = {
+            userData: [],
+            isLoggedIn: false
+        }
+        this.toggleIsLoggedIn = this.toggleIsLoggedIn.bind(this)
+        this.updateUserData = this.updateUserData.bind(this)
+
+    }
+
+    toggleIsLoggedIn(value) {
+        this.setState({isLoggedIn:value});
+    }
+
+    updateUserData(value) {
+        this.setState({userData:value})
+    }
+
+    render()
+    {
+       return (
+            <div className="App">
+                <p><img alt='NOBBIE' src={nobbieheader}/></p>
+                <Login
+                    toggleIsLoggedIn={this.toggleIsLoggedIn}
+                    updateUserData={this.updateUserData}
+                    userData={this.state.userData}
+                    isLoggedIn={this.state.isLoggedIn}
+                />
+                <Search
+                    userData={this.state.userData}
+                    isLoggedIn={this.state.isLoggedIn}
+                />
+            </div>
+        );
+    }
 }
 
 export default App;

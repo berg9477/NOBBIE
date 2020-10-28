@@ -1,0 +1,41 @@
+.checkboxgroup{
+    grid-row: 1;
+    width: 380px;
+    height: 40px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-self: center;
+    margin-bottom: 0;
+}
+
+#babyNames {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 15%;
+    justify-self: center;
+    margin-bottom: 0;
+    display: inline-flex;
+}
+
+#babyNames td, #babyNames th {
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+#babyNames tr:nth-child(even){background-color: #f2f2f2;}
+
+#babyNames tr:hover {
+    background-color: #ddd;
+}
+
+#babyNames th {
+    padding-top: 12px;
+    font-family: "Courier New";
+    padding-bottom: 12px;
+    background-color: HSL(123, 31%, 73%);
+    color: white;
+}
+
+#babyNames td:hover {
+    cursor: pointer;
+}
