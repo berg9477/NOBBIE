@@ -2,14 +2,12 @@ import React from 'react';
 import '../../App.css';
 
 
-//Component voor het defineren van een slider element
 const Text = ({label, id}) => {
     return (
         <div>
-            {/* text boven input */}
-            <label>{label}</label>
-            {/* input zelf */}
             <input
+                className={id}
+                placeholder={label}
                 id={id}
                 type="text"
             />

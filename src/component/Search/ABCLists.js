@@ -13,21 +13,21 @@ class ABCLists extends React.Component {
     }
 
     render() {
-        const abcFstItems = this.state.abcFstItems.map(item => <Checkbox key={item.id + "lst"} item={item}
-                                                                         id={item.id + "lst"} list="fstABC"
+        const abcFstItems = this.state.abcFstItems.map(item => <Checkbox key={item.id + "fst"} item={item}
+                                                                         id={item.id + "fst"} list="fstABC"
                                                                          handleClickCheck={this.props.handleClickCheck}/>)
-        const abcLstItems = this.state.abcLstItems.map(item => <Checkbox key={item.id + "fst"} item={item}
-                                                                         id={item.id + "fst"} list="lstABC"
+        const abcLstItems = this.state.abcLstItems.map(item => <Checkbox key={item.id + "lst"} item={item}
+                                                                         id={item.id + "lst"} list="lstABC"
                                                                          handleClickCheck={this.props.handleClickCheck}/>)
         return (
-            <div>
+            <div className="screen">
               Name cannot start with letter:
-                <fieldset className="checkboxgroup">{abcFstItems}
-                </fieldset>
+                <div className="row">{abcFstItems}
+                </div>
                 <br/>
               Name cannot end with letter:
-                <fieldset className="checkboxgroup">{abcLstItems}
-                </fieldset>
+                <div className="row">{abcLstItems}
+                </div>
             </div>
         )
     }

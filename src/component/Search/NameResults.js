@@ -11,15 +11,13 @@ class NameResults extends React.Component
         this.state = {
         }
         this.renderUsageData = this.renderUsageData.bind(this)
-        this.renderGendereData = this.renderGendereData.bind(this)
+        this.renderGenderData = this.renderGenderData.bind(this)
         this.renderRelatedData = this.renderRelatedData.bind(this)
     }
 
     renderUsageData () {
-        let key = 0;
         return this.props.allUsage.usages.map((item, index) => {
             let gen;
-            key++
             if(item.usage_gender === 'f'){
                 gen = 'females';
             } else{
@@ -30,8 +28,8 @@ class NameResults extends React.Component
             )
         })
     }
-    renderGendereData (gen) {
-        let gender = null;
+    renderGenderData (gen) {
+        let gender;
         if(gen === 'f'){
             gender = 'This name is only used for naming women'
         }
@@ -52,26 +50,27 @@ class NameResults extends React.Component
         })
     }
     render() {
-        const title = this.props.isLoggedIn === true ? this.props.allUsage.name+ " "+this.props.userData.Lastname : this.props.allUsage.name
+        const title = this.props.isLoggedIn === true ? this.props.name + " "+this.props.userData.Lastname : this.props.name
         return (
             <div>
-                {this.props.allUsage.gender !== undefined &&
-                <div>
-                    <h1>{title}</h1>
-                    {this.props.isLoggedIn === true &&
-                    <LikeName
+                <h1>{title}</h1>
+                {this.props.isLoggedIn === true &&
+                <LikeName
                     userData = {this.props.userData}
                     nameToAdd = {this.props.allUsage.name}
-                    />}
-                    <h2>{this.renderGendereData(this.props.allUsage.gender)}</h2>
+                />}
+                {this.props.allUsage.gender !== undefined &&
+                <div>
+
+                    <h2>{this.renderGenderData(this.props.allUsage.gender)}</h2>
                     {this.renderUsageData()}
                     {this.props.allRelated.length > 0 &&
                     <div>This name is related to the following other names:{this.renderRelatedData()}</div>}
                 </div>}
                 {this.props.allUsage.length === 0 &&
-                    <p>No results to display</p>}
+                <p>This is a very unique name, there is no additional information to view</p>}
 
-                    </div>
+            </div>
         )
     }
 }
