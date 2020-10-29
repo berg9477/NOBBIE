@@ -13,7 +13,8 @@ class Login extends React.Component
         this.handleButtonClick = this.handleButtonClick.bind(this);
 
     }
-    handleButtonClick(value) {
+    handleButtonClick() {
+        const value = this.state.display === 'none' ? 'block' : 'none'
         this.setState({display: value})
     }
 
@@ -21,11 +22,10 @@ class Login extends React.Component
     {
         return (
             <div>
-                <button onClick={()=>this.handleButtonClick("block")}>Login
+                <button onClick={()=>this.handleButtonClick()}>My Nobbie
                 </button>
                 <div style={{display: this.state.display}}>
-                    <button onClick={()=>this.handleButtonClick("none")}>Close
-                    </button>
+
                   <ExistingUser
                     toggleIsLoggedIn={this.props.toggleIsLoggedIn}
                     updateUserData={this.props.updateUserData}

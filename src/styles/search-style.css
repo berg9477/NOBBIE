@@ -1,13 +1,3 @@
-.checkboxgroup{
-    grid-row: 1;
-    width: 380px;
-    height: 40px;
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-self: center;
-    margin-bottom: 0;
-}
-
 #babyNames {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -30,7 +20,6 @@
 
 #babyNames th {
     padding-top: 12px;
-    font-family: "Courier New";
     padding-bottom: 12px;
     background-color: HSL(123, 31%, 73%);
     color: white;
@@ -38,4 +27,32 @@
 
 #babyNames td:hover {
     cursor: pointer;
+}
+
+select {
+    max-width: 250px;
+    min-width: 150px;
+    border: 1px solid HSL(0, 0%, 10%);
+    border-radius: 2px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: "Courier New";
+    color: HSL(0, 0%, 0%);
+}
+
+.nameSearch{
+    width: 400px;
+    border-radius: 12px;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.searchPanel{
+    border: 3px solid HSL(0, 0%, 80%);
+    background-color: HSL(0, 0%, 90%);
+    width: 600px;
+    height: 450px;
+    flex-wrap: wrap;
+    display: inline-flex;
+    border-radius: 12px;
 }
