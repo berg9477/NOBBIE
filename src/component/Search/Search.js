@@ -14,7 +14,8 @@ class Search extends React.Component
             lstABC: [],
             searchResult: [],
             loading: false,
-            showNameSpecifics: false
+            showNameSpecifics: false,
+            noResult: false
         }
         this.handleClickCheck = this.handleClickCheck.bind(this);
         this.fetchData = this.fetchData.bind(this);
@@ -38,6 +39,7 @@ class Search extends React.Component
     }
 
     fetchData() {
+        this.setState({noResult:false})
         this.setState({searchResult:[]})
         const startsWithAny = (prefixes, str) => {
             return prefixes.some(function (prefix) {
@@ -57,9 +59,6 @@ class Search extends React.Component
             const listOfNames = db.ref('BabyNames');
             const fst = this.state.fstABC
             const lst = this.state.lstABC
-            const query = listOfNames
-                .orderByChild('firstname')
-                .endAt(searchItem + "\uf8ff");
 
             const addToSearchResult = (data) => {
                 let resName = data.firstname;
@@ -78,16 +77,30 @@ class Search extends React.Component
                         })
                     )
                     this.setState({loading: false})
+                    if(this.state.searchResult.length === 0){
+                        this.setState({noResult:true})
+                        this.setState({loading:false})
+                    } else {
+                        this.setState({noResult:false})
+                    }
+                } else if (this.state.searchResult.length === 0){
+                    this.setState({noResult:true})
+                    this.setState({loading:false})
                 }
             }
+            const query = listOfNames
+                .orderByChild('firstname')
+                .endAt(searchItem + "\uf8ff");
 
             query.on("value", (snapshot) => {
-                snapshot.forEach((childSnapshot) => {
-                    const date = childSnapshot.val();
-                    addToSearchResult(date)
-                })
+                    snapshot.forEach((childSnapshot) => {
+                        const data = childSnapshot.val();
+                            addToSearchResult(data)
+                    })
             })
 
+        } else {
+            this.setState({noResult:true})
         }
 
     }
@@ -122,6 +135,7 @@ class Search extends React.Component
                </div>
 
                {this.state.loading && <p>Loading....</p>}
+               {this.state.noResult === true && <p>No result to display. Please try to specify your search more precisely.</p>}
 
                <ResultTable
                    result={this.state.searchResult}
