@@ -47,6 +47,7 @@ class ExistingUser extends React.Component
                         <Text
                             id="passwordLogin"
                             label="Password"
+                            type="password"
                         />
                         <button onClick={()=>this.handleLoginClick()}>
                             Login

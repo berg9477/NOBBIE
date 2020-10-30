@@ -1,7 +1,7 @@
 import React from "react";
-import hartje from "../../IMG/hartje.svg"
-import hartjeliked from "../../IMG/hartjeliked.svg"
-import firebs from "../../data/firebaseConfig";
+import hartje from "../../../IMG/hartje.svg"
+import hartjeliked from "../../../IMG/hartjeliked.svg"
+import firebs from "../../../data/firebaseConfig";
 import NameWithConnection from "./NameWithConnection";
 
 

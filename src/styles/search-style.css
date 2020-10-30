@@ -47,7 +47,7 @@ select {
     margin: 20px;
 }
 
-.searchPanel{
+#searchPanel{
     border: 3px solid HSL(0, 0%, 80%);
     background-color: HSL(0, 0%, 90%);
     width: 600px;

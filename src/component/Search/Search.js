@@ -1,7 +1,7 @@
 import React from 'react';
 import Text from "../input/Text";
 import firebs from "../../data/firebaseConfig";
-import ResultTable from "./ResultTable";
+import ResultTable from "./results/ResultTable";
 import ABCLists from "./ABCLists";
 import GenderSelect from "../input/GenderSelect";
 import Alphabetical from "./Alphabetical";
@@ -39,9 +39,27 @@ class Search extends React.Component
                 }));
             }
         }
+        if (checkBox.checked === false) {
+            if (list === "fstABC") {
+                const array = [...this.state.fstABC];
+                const index = array.indexOf(label)
+                if (index !== -1) {
+                    array.splice(index, 1);
+                    this.setState({fstABC: array});
+                }
+            } else {
+                const array = [...this.state.lstABC];
+                const index = array.indexOf(label)
+                if (index !== -1) {
+                    array.splice(index, 1);
+                    this.setState({lstABC: array});
+                }
+            }
+        }
     }
 
     addToSearchResult = (data) => {
+        document.getElementById("searchPanel").disabled = true;
         const startsWithAny = (prefixes, str) => {
             return prefixes.some(function (prefix) {
                 return str.startsWith(prefix);
@@ -130,8 +148,8 @@ class Search extends React.Component
     render()
     {
         return (
-            <div onKeyPress={(event) => this.handleKeyDown(event)}>
-                <div className="searchPanel">
+            <div  onKeyPress={(event) => this.handleKeyDown(event)}>
+                <div id="searchPanel">
                     <Alphabetical
                         addToSearchResult={this.addToSearchResult}
                         setSearchResult={this.setSearchResult}
