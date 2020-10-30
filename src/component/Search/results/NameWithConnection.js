@@ -1,5 +1,5 @@
 import React from "react";
-import feest from "../../IMG/feest.png"
+import feest from "../../../IMG/feest.png"
 
 
 class NameWithConnection extends React.Component
