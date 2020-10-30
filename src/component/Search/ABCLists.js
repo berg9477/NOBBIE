@@ -8,7 +8,7 @@ class ABCLists extends React.Component {
         super()
         this.state = {
             abcLstItems: abcData,
-            abcFstItems: abcData,
+            abcFstItems: abcData
         }
     }
 
@@ -19,13 +19,14 @@ class ABCLists extends React.Component {
         const abcLstItems = this.state.abcLstItems.map(item => <Checkbox key={item.id + "lst"} item={item}
                                                                          id={item.id + "lst"} list="lstABC"
                                                                          handleClickCheck={this.props.handleClickCheck}/>)
+
         return (
             <div className="screen">
-              Name cannot start with letter:
+              Name <b>cannot</b> start with letter:
                 <div className="row">{abcFstItems}
                 </div>
                 <br/>
-              Name cannot end with letter:
+              Name <b>cannot</b> end with letter:
                 <div className="row">{abcLstItems}
                 </div>
             </div>

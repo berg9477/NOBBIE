@@ -51,7 +51,7 @@ select {
     border: 3px solid HSL(0, 0%, 80%);
     background-color: HSL(0, 0%, 90%);
     width: 600px;
-    height: 450px;
+    height: 750px;
     flex-wrap: wrap;
     display: inline-flex;
     border-radius: 12px;
