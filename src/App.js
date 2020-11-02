@@ -2,7 +2,7 @@ import React from 'react';
 import Search from "./component/Search/Search";
 import './App.css';
 import Login from "./component/Login/Login";
-import nobbieheader from "./IMG/nobbieheader.png"
+import nobbieheader from "./IMG/nobbieheader.png";
 
 
 class App extends React.Component
@@ -25,10 +25,10 @@ class App extends React.Component
     updateUserData(value) {
         this.setState({userData:value})
     }
-
     render()
     {
-       return (
+
+        return (
             <div className="App">
                 <p><img alt='NOBBIE' src={nobbieheader}/></p>
                 <Login
