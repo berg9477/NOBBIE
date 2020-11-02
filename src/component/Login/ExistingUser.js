@@ -2,7 +2,6 @@ import React from "react";
 import '../../styles/login-style.css';
 import Text from "../input/Text";
 import firebs from "../../data/firebaseConfig";
-import ProfilePage from "../profilePage/profilePage";
 
 class ExistingUser extends React.Component
 {
