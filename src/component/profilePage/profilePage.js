@@ -40,6 +40,7 @@ class ProfilePage extends React.Component
                 {this.state.makeConnection === true &&
                     <MakeUserConnection
                         Username = {this.props.userData.Username}
+
                      />}
                 <ListOfSavedNames
                     SavedNamesList = {this.props.userData.SavedNamesList}

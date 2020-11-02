@@ -57,7 +57,7 @@ class NameResults extends React.Component
                 {this.props.isLoggedIn === true &&
                 <LikeName
                     userData = {this.props.userData}
-                    nameToAdd = {this.props.allUsage.name}
+                    nameToAdd = {this.props.name}
                 />}
                 {this.props.allUsage.gender !== undefined &&
                 <div>

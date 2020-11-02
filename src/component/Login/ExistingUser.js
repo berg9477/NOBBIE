@@ -36,7 +36,7 @@ class ExistingUser extends React.Component
     }
     render() {
         return (
-            <div>
+            <div className="Panel">
                 {(this.state.loginSuccess === '' || this.state.loginSuccess === false) &&
                     <div onKeyPress={(event) => this.handleKeyDown(event)}>
                     <h1>Existing user</h1>
@@ -53,10 +53,6 @@ class ExistingUser extends React.Component
                             Login
                         </button>
                     </div>}
-                {this.props.isLoggedIn === true &&
-                    <ProfilePage
-                        userData={this.props.userData}
-                    />}
                 {(this.props.isLoggedIn === false && this.state.loginSuccess === false) &&
                     <p>
                         Incorrect username and/or password, please try again
