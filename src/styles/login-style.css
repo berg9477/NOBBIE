@@ -12,3 +12,19 @@
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
 }
+
+.Login {
+    border: 3px solid HSL(0, 0%, 80%);
+    background-color: HSL(0, 0%, 90%);
+    width: 600px;
+    height: 450px;
+    border-radius: 12px;
+    margin-left: 360px;
+}
+
+.Panel {
+    width: 220px;
+    flex-wrap: wrap;
+    display: inline-flex;
+    border-radius: 12px;
+}
