@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.intro {
+  display: inline-flex;
+  flex-direction: column;
+  width: 800px;
+  flex-wrap: wrap;
+  font-size: large;
+}

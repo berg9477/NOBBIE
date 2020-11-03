@@ -20,8 +20,7 @@ class ExistingUser extends React.Component
             if (passwordOut === passwordIn) {
                 this.props.toggleIsLoggedIn(true);
                 this.props.updateUserData(snapshot.val());
-                this.setState({loginSuccess:true})
-
+                this.setState({loginSuccess:true});
             } else {
                 this.props.toggleIsLoggedIn(false);
                 this.setState({loginSuccess:false})

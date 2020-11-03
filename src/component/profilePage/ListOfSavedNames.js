@@ -33,13 +33,15 @@ class ListOfSavedNames extends React.Component
         const finalList = []
         if (!!connection) {
             firebs.database().ref('Users/' + connection).on('value', (snapshot) => {
-                const connList = !!snapshot.val() ? snapshot.val().SavedNamesList : null;
-                connList.forEach(item => {
-                    if(this.props.SavedNamesList.indexOf(item) > -1){
-                        finalList.push(item)
-                    }
-                })
-                this.setState({sharedNamesList:this.renderSavedNames(finalList)})
+                const connList = snapshot.val() !== undefined && snapshot.val().SavedNamesList !== undefined ? snapshot.val().SavedNamesList : null;
+                if(!!connList) {
+                    connList.forEach(item => {
+                        if (this.props.SavedNamesList.indexOf(item) > -1) {
+                            finalList.push(item)
+                        }
+                    })
+                    this.setState({sharedNamesList: this.renderSavedNames(finalList)})
+                }
             })
         }
     }
