@@ -22,7 +22,7 @@ class Login extends React.Component
     render()
     {
         return (
-            <div >
+            <div>
                 <button onClick={()=>this.handleButtonClick()}>
                     My Nobbie
                 </button>

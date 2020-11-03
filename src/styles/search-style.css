@@ -51,9 +51,16 @@ select {
     border: 3px solid HSL(0, 0%, 80%);
     background-color: HSL(0, 0%, 90%);
     width: 600px;
-    height: 750px;
+    height: 100%;
     flex-wrap: wrap;
     display: inline-flex;
     border-radius: 12px;
 }
 
+.specificSearch{
+    width: 400px;
+    height: 100%;
+    border-radius: 12px;
+    font-size: 20px;
+    margin: 20px;
+}

@@ -16,14 +16,17 @@ class Search extends React.Component
             searchResult: [],
             loading: false,
             showNameSpecifics: false,
-            noResult: false
+            noResult: false,
+            display: 'none'
         }
+
         this.handleClickCheck = this.handleClickCheck.bind(this);
         this.fetchData = this.fetchData.bind(this);
         this.setShowNameSpecifics = this.setShowNameSpecifics.bind(this);
-        this.setSearchResult = this.setSearchResult.bind(this)
-        this.setLoading = this.setLoading.bind(this)
+        this.setSearchResult = this.setSearchResult.bind(this);
+        this.setLoading = this.setLoading.bind(this);
         this.addToSearchResult = this.addToSearchResult.bind(this);
+        this.openSpecificSearch = this.openSpecificSearch.bind(this);
     }
 
     handleClickCheck (id, label, list) {
@@ -134,8 +137,14 @@ class Search extends React.Component
         this.setState({searchResult:res})
     }
 
+
     setLoading (value) {
         this.setState({loading:value})
+    }
+
+    openSpecificSearch () {
+        const val = this.state.display === 'none' ? 'block' : 'none'
+        this.setState({display: val})
     }
 
     handleKeyDown = (e) => {
@@ -148,26 +157,30 @@ class Search extends React.Component
     render()
     {
         return (
-            <div  onKeyPress={(event) => this.handleKeyDown(event)}>
+            <div onKeyPress={(event) => this.handleKeyDown(event)}>
                 <div id="searchPanel">
                     <Alphabetical
                         addToSearchResult={this.addToSearchResult}
                         setSearchResult={this.setSearchResult}
                         setLoading={this.setLoading}
                     />
-                    <h3>Search on a specific name/part of name</h3>
-                    <Text
-                        id='nameSearch'
-                        label='Type in your search...'
-                    />
-                    <GenderSelect/>
-                    <ABCLists
-                        handleClickCheck={this.handleClickCheck}
-                    />
-                    <p>
-                        <button type="button" onClick={()=>this.fetchData()}>
-                            Get names
-                        </button></p>
+                    <div onClick={()=>this.openSpecificSearch(true)}>
+                        <h3><u>Search on a specific name/part of name</u></h3>
+                    </div>
+                    <div className="specificSearch" style={{display: this.state.display}}>
+                        <Text
+                            id='nameSearch'
+                            label='Type in your search...'
+                        />
+                        <GenderSelect/>
+                        <ABCLists
+                            handleClickCheck={this.handleClickCheck}
+                        />
+                        <p>
+                            <button type="button" onClick={()=>this.fetchData()}>
+                                Get names
+                            </button></p>
+                    </div>
 
                 </div>
 
