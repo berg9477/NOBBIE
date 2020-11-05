@@ -1,6 +1,6 @@
 import React from 'react';
 import abcData from "../../data/abcData";
-import "../../styles/search-style.css";
+import "../../styles/main-style.css";
 import firebs from "../../data/firebaseConfig";
 import Button from "../input/Button";
 
@@ -17,6 +17,7 @@ class Alphabetical extends React.Component
     }
 
     handleClickCheck(id) {
+        document.getElementById('nameSearch').value = "";
         this.props.setSearchResult([])
         this.props.setLoading(true)
             const db = firebs.database();

@@ -1,7 +1,7 @@
 import React from 'react';
 import abcData from "../../data/abcData";
 import Checkbox from "../input/Checkbox";
-import "../../styles/search-style.css";
+import "../../styles/main-style.css";
 
 class ABCLists extends React.Component {
     constructor() {

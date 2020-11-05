@@ -5,8 +5,11 @@ import ResultTable from "./results/ResultTable";
 import ABCLists from "./ABCLists";
 import GenderSelect from "../input/GenderSelect";
 import Alphabetical from "./Alphabetical";
+import Intro from "../Intro";
+import rainbow from "../../IMG/rainbow.png"
 
-class Search extends React.Component
+
+class MainScreen extends React.Component
 {
     constructor() {
         super()
@@ -131,6 +134,7 @@ class Search extends React.Component
         }
 
     }
+
     setShowNameSpecifics(value) {
         this.setState({showNameSpecifics: value})
     }
@@ -165,6 +169,7 @@ class Search extends React.Component
         return (
             <div>
                 <div className="searchWrapper" onKeyPress={(event) => this.handleKeyDown(event)}>
+                    <Intro/>
                     <div id="searchPanel">
                         <Alphabetical
                             addToSearchResult={this.addToSearchResult}
@@ -194,7 +199,7 @@ class Search extends React.Component
                     </div>
                 </div>
 
-                    {this.state.loading && <p>Loading....</p>}
+                    {this.state.loading && <p>Loading....  <img alt='rainbow' height='20px' src={rainbow}/></p>}
                     {this.state.noResult === true && <p>No result to display. Please try to specify your search more precisely.</p>}
 
                     <ResultTable
@@ -209,4 +214,4 @@ class Search extends React.Component
     }
 }
 
-export default Search;
+export default MainScreen;

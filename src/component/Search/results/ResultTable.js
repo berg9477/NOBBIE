@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../../styles/search-style.css";
+import "../../../styles/main-style.css";
 import axios from "axios";
 import NameResults from "./NameResults";
 class ResultTable extends React.Component {
@@ -60,7 +60,7 @@ class ResultTable extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="resultWrapper">
                 <table key="babyNames" id="babyNames">
                     <tbody>
                     {this.props.result.length !== 0 &&
