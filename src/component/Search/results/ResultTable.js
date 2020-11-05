@@ -21,7 +21,7 @@ class ResultTable extends React.Component {
         this.setState({allUsage:[]})
         this.setState({allRelated:[]})
         this.setState({toggleLoading:true});
-        const api_key = process.env.NAME_API_KEY
+        // const api_key = process.env.NAME_API_KEY
         try {
             const usageUrl = 'https://www.behindthename.com/api/lookup.json?name=' + name + '&key=sa583307807';
             const relatedUrl = 'https://www.behindthename.com/api/related.json?name=' + name + '&key=sa583307807';
