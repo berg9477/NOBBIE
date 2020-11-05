@@ -1,21 +1,18 @@
 .searchWrapper{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.searchPanel{
+#searchPanel{
     width: 625px;
     height: 100%;
     background: transparent;
     align-self: center;
-}
-
-.specificSearch{
-    width: 400px;
-    height: 100%;
-    border-radius: 12px;
-    font-size: 20px;
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .lettersButton{
@@ -23,48 +20,90 @@
     border: solid 0.5px HSL(350, 10%, 80%);
     height: 35px;
     width: 35px;
-    color: white;
+    color: #ffffff;
     padding: 5px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 12px;
     margin: 5px;
+    box-shadow: none;
 }
 
-.lettersCheckbox {
-    align-items: center;
-    border: 3px solid HSL(0, 0%, 90%);
+/*link for more or less filters*/
+.filters{
+    text-align: right;
+    width: 65%;
+    margin-top: -15px;
+    align-self: center;
     cursor: pointer;
+}
+
+.filterUp, .filterDown{
+    font-size: 18px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    display: inline-block;
+}
+
+.filterDown{
+    border-top: 12px solid;
+}
+
+.filterUp{
+    border-bottom: 12px solid;
+}
+
+/*results for more filters*/
+.specificSearch{
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    font-family: "Courier New";
+    margin: 10px;
+}
+.lettersWrapper {
+    width: 405px;
+    padding: 10px;
+    display: inline-block;
+}
+
+/*letters for specific filtering*/
+.lettersCheckbox {
+    border: 1px solid HSL(350, 10%, 80%);
+    background-color: HSL(354, 44%, 66.5%);
+    font-size: 14px;
+    color: white;
+    height: 25px;
+    width: 25px;
+    border-radius: 7px;
     display: flex;
-    font-size: 1em;
-    height: 30px;
     justify-content: center;
     position: relative;
-    width: 30px;
-    background-color: lightpink;
-    border-radius: 12px;
+    align-items: center;
+    cursor: pointer;
+    margin: 1px;
+
 }
+
+.lettersCheckbox:hover{
+    background-color: HSL(354, 44%, 60%);
+}
+
+/*row with Letters*/
 .ABCrow {
     align-items: center;
     display: flex;
     justify-content: space-around;
     width: 100%;
-    border: solid 1px;
     flex-wrap: wrap;
 }
 .ABCrow input {
     display: none;
 }
 .ABCrow input:checked + .lettersCheckbox {
-    border: 3px solid HSL(123, 31%, 73%);
-    background-color: HSL(123, 31%, 73%);
-    color: #7989a4;
-}
-.screen {
-    align-items: center;
-    width: 600px;
-    height: 200px;
-    padding: 10px;
+    background-color: HSL(0, 0%, 44%);
 }
 
 

@@ -9,7 +9,7 @@ const Checkbox = (props) => {
                     onClick={() => props.handleClickCheck(props.id, props.item.label, props.list)}
                     id={props.id}
                 />
-            <label htmlFor={props.id} className="lettersCheckbox">{props.item.label}</label>
+            <label htmlFor={props.id} className="lettersCheckbox">{props.item.id}</label>
 
 
 

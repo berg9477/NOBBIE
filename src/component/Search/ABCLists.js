@@ -21,7 +21,7 @@ class ABCLists extends React.Component {
                                                                          handleClickCheck={this.props.handleClickCheck}/>)
 
         return (
-            <div className="screen">
+            <div className="lettersWrapper">
               Name <b>cannot</b> start with letter:
                 <div className="ABCrow">{abcFstItems}
                 </div>

@@ -17,7 +17,9 @@ class Search extends React.Component
             loading: false,
             showNameSpecifics: false,
             noResult: false,
-            display: false
+            display: false,
+            filterText: "More filters",
+            filterTriangle: "filterDown"
         }
 
         this.handleClickCheck = this.handleClickCheck.bind(this);
@@ -74,8 +76,8 @@ class Search extends React.Component
             });
         }
         const searchItem = document.getElementById('nameSearch').value.toLowerCase();
-        const searchGender = document.getElementById('gender').value;
-
+        const getGender = document.getElementById('gender');
+        const searchGender = !!getGender ? getGender.value : "";
         let resName = data.firstname;
         let listNr = data.listingNr.toString();
         listNr = listNr === "999" ? "" : listNr;
@@ -142,8 +144,13 @@ class Search extends React.Component
         this.setState({loading:value})
     }
 
-    openSpecificSearch (value) {
-        this.setState({display: value})
+    openSpecificSearch () {
+        const val = this.state.display === true ? false : true
+        const val2 = val === true ? "Less filters" : "More filters"
+        const val3 = val === true ? "filterUp" : "filterDown"
+        this.setState({display: val})
+        this.setState({filterText:val2})
+        this.setState({filterTriangle:val3})
     }
 
     handleKeyDown = (e) => {
@@ -156,43 +163,47 @@ class Search extends React.Component
     render()
     {
         return (
-            <div className="searchWrapper" onKeyPress={(event) => this.handleKeyDown(event)}>
-                <div className="searchPanel">
-                    <Alphabetical
-                        addToSearchResult={this.addToSearchResult}
-                        setSearchResult={this.setSearchResult}
-                        setLoading={this.setLoading}
-                    />
-                    <h3>Search on a specific name/part of name</h3>
-                    <Text
-                        id='nameSearch'
-                        label='Type in your search...'
-                    />
-                    <div onClick={()=>this.openSpecificSearch(true)}>
-                        More filters
-                    </div>
-                        <button type="button" onClick={()=>this.fetchData()}>
-                            Get names
-                        </button>
-                    {this.state.display === true &&
-                    <div className="specificSearch">
-                        <GenderSelect/>
-                        <ABCLists
-                            handleClickCheck={this.handleClickCheck}
+            <div>
+                <div className="searchWrapper" onKeyPress={(event) => this.handleKeyDown(event)}>
+                    <div id="searchPanel">
+                        <Alphabetical
+                            addToSearchResult={this.addToSearchResult}
+                            setSearchResult={this.setSearchResult}
+                            setLoading={this.setLoading}
                         />
-                    </div>}
+                        <h3>Search on a specific name/part of name</h3>
+                        <Text
+                            id='nameSearch'
+                            label='Type in your search...'
+                        />
+                        <div className="filters" onClick={()=>this.openSpecificSearch()}>
+                            {this.state.filterText}  <div className={this.state.filterTriangle}> </div>
+                        </div>
+                        {this.state.display === true &&
+                        <div className="specificSearch">
+                            <GenderSelect/>
+                            <br/>
+                            <ABCLists
+                                handleClickCheck={this.handleClickCheck}
+                            />
+                        </div>}
+                            <button type="button" onClick={()=>this.fetchData()}>
+                                Get names
+                            </button>
+
+                    </div>
                 </div>
 
-                {this.state.loading && <p>Loading....</p>}
-                {this.state.noResult === true && <p>No result to display. Please try to specify your search more precisely.</p>}
+                    {this.state.loading && <p>Loading....</p>}
+                    {this.state.noResult === true && <p>No result to display. Please try to specify your search more precisely.</p>}
 
-                <ResultTable
-                    result={this.state.searchResult}
-                    showName={this.state.showNameSpecifics}
-                    showSpecifics={this.setShowNameSpecifics}
-                    isLoggedIn={this.props.isLoggedIn}
-                    userData={this.props.userData}
-                />
+                    <ResultTable
+                        result={this.state.searchResult}
+                        showName={this.state.showNameSpecifics}
+                        showSpecifics={this.setShowNameSpecifics}
+                        isLoggedIn={this.props.isLoggedIn}
+                        userData={this.props.userData}
+                    />
             </div>
         );
     }
