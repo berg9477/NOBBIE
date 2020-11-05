@@ -1,9 +1,8 @@
 import React from 'react';
-import Search from "./component/Search/Search";
+import MainScreen from "./component/Search/MainScreen";
 import './styles/App.css';
 import Login from "./component/Login/Login";
 import Header from "./component/Header";
-import Intro from "./component/Intro";
 
 class App extends React.Component
 {
@@ -38,8 +37,7 @@ class App extends React.Component
                 <Header
                     handleButtonClick = {this.handleButtonClick}
                 />
-                <div className="mainSearch">
-                    <Intro/>
+                <div className="mainScreen">
                     {this.state.displayInlog === true &&
                     <Login
                     toggleIsLoggedIn={this.toggleIsLoggedIn}
@@ -47,7 +45,7 @@ class App extends React.Component
                     userData={this.state.userData}
                     isLoggedIn={this.state.isLoggedIn}
                     />}
-                    <Search
+                    <MainScreen
                     userData={this.state.userData}
                     isLoggedIn={this.state.isLoggedIn}
                     />

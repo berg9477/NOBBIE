@@ -1,7 +1,7 @@
 import React from 'react';
 import abcData from "../../data/abcData";
 import Checkbox from "../input/Checkbox";
-import "../../styles/search-style.css";
+import "../../styles/main-style.css";
 
 class ABCLists extends React.Component {
     constructor() {
@@ -21,7 +21,7 @@ class ABCLists extends React.Component {
                                                                          handleClickCheck={this.props.handleClickCheck}/>)
 
         return (
-            <div className="screen">
+            <div className="lettersWrapper">
               Name <b>cannot</b> start with letter:
                 <div className="ABCrow">{abcFstItems}
                 </div>
