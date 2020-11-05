@@ -1,3 +1,83 @@
+.searchWrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.searchPanel{
+    width: 625px;
+    height: 100%;
+    background: transparent;
+    align-self: center;
+}
+
+.specificSearch{
+    width: 400px;
+    height: 100%;
+    border-radius: 12px;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.lettersButton{
+    background-color: HSL(123, 31%, 73%);
+    border: solid 0.5px HSL(350, 10%, 80%);
+    height: 35px;
+    width: 35px;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: 5px;
+}
+
+.lettersCheckbox {
+    align-items: center;
+    border: 3px solid HSL(0, 0%, 90%);
+    cursor: pointer;
+    display: flex;
+    font-size: 1em;
+    height: 30px;
+    justify-content: center;
+    position: relative;
+    width: 30px;
+    background-color: lightpink;
+    border-radius: 12px;
+}
+.ABCrow {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border: solid 1px;
+    flex-wrap: wrap;
+}
+.ABCrow input {
+    display: none;
+}
+.ABCrow input:checked + .lettersCheckbox {
+    border: 3px solid HSL(123, 31%, 73%);
+    background-color: HSL(123, 31%, 73%);
+    color: #7989a4;
+}
+.screen {
+    align-items: center;
+    width: 600px;
+    height: 200px;
+    padding: 10px;
+}
+
+
+.nameSearch{
+    width: 400px;
+    border-radius: 12px;
+    font-size: 20px;
+    margin: 20px;
+}
+
+
+/*Result table*/
+
 #babyNames {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -29,38 +109,4 @@
     cursor: pointer;
 }
 
-select {
-    max-width: 250px;
-    min-width: 150px;
-    border: 1px solid HSL(0, 0%, 10%);
-    border-radius: 2px;
-    padding: 10px;
-    font-size: 14px;
-    font-family: "Courier New";
-    color: HSL(0, 0%, 0%);
-}
 
-.nameSearch{
-    width: 400px;
-    border-radius: 12px;
-    font-size: 20px;
-    margin: 20px;
-}
-
-#searchPanel{
-    border: 3px solid HSL(0, 0%, 80%);
-    background-color: HSL(0, 0%, 90%);
-    width: 600px;
-    height: 100%;
-    flex-wrap: wrap;
-    display: inline-flex;
-    border-radius: 12px;
-}
-
-.specificSearch{
-    width: 400px;
-    height: 100%;
-    border-radius: 12px;
-    font-size: 20px;
-    margin: 20px;
-}

@@ -23,8 +23,8 @@ class ResultTable extends React.Component {
         this.setState({toggleLoading:true});
         const api_key = process.env.NAME_API_KEY
         try {
-            const usageUrl = 'https://www.behindthename.com/api/lookup.json?name=' + name + '&key='+ api_key;
-            const relatedUrl = 'https://www.behindthename.com/api/related.json?name=' + name + '&key='+ api_key;
+            const usageUrl = 'https://www.behindthename.com/api/lookup.json?name=' + name + '&key=sa583307807';
+            const relatedUrl = 'https://www.behindthename.com/api/related.json?name=' + name + '&key=sa583307807';
             axios.all([
                 await axios.get(usageUrl).then((usage) => {
                     if (usage.data.error === undefined) {

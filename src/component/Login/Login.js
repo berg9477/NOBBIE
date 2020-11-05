@@ -9,24 +9,14 @@ class Login extends React.Component
     constructor() {
         super()
         this.state = {
-            display: 'none'
         }
-        this.handleButtonClick = this.handleButtonClick.bind(this);
-
-    }
-    handleButtonClick() {
-        const value = this.state.display === 'none' ? 'block' : 'none'
-        this.setState({display: value})
     }
 
     render()
     {
         return (
             <div>
-                <button onClick={()=>this.handleButtonClick()}>
-                    My Nobbie
-                </button>
-                <div className="Login" style={{display: this.state.display}}>
+                <div className="Login">
                   {this.props.isLoggedIn !== true &&
                       <div>
                           <ExistingUser

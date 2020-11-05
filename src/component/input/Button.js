@@ -1,10 +1,10 @@
 import React from 'react';
 
-//Component voor het defineren van een slider element
 const Button = (props) => {
     return (
         <div>
                 <button
+                    className="lettersButton"
                     type="button"
                     onClick={() => props.handleClickCheck(props.id)}
                     >
