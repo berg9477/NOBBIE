@@ -17,7 +17,7 @@ class Search extends React.Component
             loading: false,
             showNameSpecifics: false,
             noResult: false,
-            display: 'none'
+            display: false
         }
 
         this.handleClickCheck = this.handleClickCheck.bind(this);
@@ -142,9 +142,8 @@ class Search extends React.Component
         this.setState({loading:value})
     }
 
-    openSpecificSearch () {
-        const val = this.state.display === 'none' ? 'block' : 'none'
-        this.setState({display: val})
+    openSpecificSearch (value) {
+        this.setState({display: value})
     }
 
     handleKeyDown = (e) => {
@@ -157,31 +156,31 @@ class Search extends React.Component
     render()
     {
         return (
-            <div onKeyPress={(event) => this.handleKeyDown(event)}>
-                <div id="searchPanel">
+            <div className="searchWrapper" onKeyPress={(event) => this.handleKeyDown(event)}>
+                <div className="searchPanel">
                     <Alphabetical
                         addToSearchResult={this.addToSearchResult}
                         setSearchResult={this.setSearchResult}
                         setLoading={this.setLoading}
                     />
+                    <h3>Search on a specific name/part of name</h3>
+                    <Text
+                        id='nameSearch'
+                        label='Type in your search...'
+                    />
                     <div onClick={()=>this.openSpecificSearch(true)}>
-                        <h3><u>Search on a specific name/part of name</u></h3>
+                        More filters
                     </div>
-                    <div className="specificSearch" style={{display: this.state.display}}>
-                        <Text
-                            id='nameSearch'
-                            label='Type in your search...'
-                        />
+                        <button type="button" onClick={()=>this.fetchData()}>
+                            Get names
+                        </button>
+                    {this.state.display === true &&
+                    <div className="specificSearch">
                         <GenderSelect/>
                         <ABCLists
                             handleClickCheck={this.handleClickCheck}
                         />
-                        <p>
-                            <button type="button" onClick={()=>this.fetchData()}>
-                                Get names
-                            </button></p>
-                    </div>
-
+                    </div>}
                 </div>
 
                 {this.state.loading && <p>Loading....</p>}

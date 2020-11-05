@@ -37,8 +37,8 @@ class Alphabetical extends React.Component
         const abcItems = this.state.abcItems.map((item, index) => <Button id={item.id}  key={index} handleClickCheck={this.handleClickCheck}/>)
         return (
             <div>
-                <h3>Get all names that start with:</h3>
-                <div className="row">{abcItems}
+                <h3>Search for all names that start with:</h3>
+                <div className="ABCrow">{abcItems}
                 </div>
                 <br/>
             </div>

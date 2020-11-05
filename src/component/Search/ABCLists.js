@@ -23,11 +23,11 @@ class ABCLists extends React.Component {
         return (
             <div className="screen">
               Name <b>cannot</b> start with letter:
-                <div className="row">{abcFstItems}
+                <div className="ABCrow">{abcFstItems}
                 </div>
                 <br/>
               Name <b>cannot</b> end with letter:
-                <div className="row">{abcLstItems}
+                <div className="ABCrow">{abcLstItems}
                 </div>
             </div>
         )

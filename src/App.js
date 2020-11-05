@@ -2,8 +2,8 @@ import React from 'react';
 import Search from "./component/Search/Search";
 import './styles/App.css';
 import Login from "./component/Login/Login";
-import nobbieheader from "./IMG/nobbieheader.png";
-
+import Header from "./component/Header";
+import Intro from "./component/Intro";
 
 class App extends React.Component
 {
@@ -11,11 +11,16 @@ class App extends React.Component
         super()
         this.state = {
             userData: [],
-            isLoggedIn: false
+            isLoggedIn: false,
+            displayInlog: false
         }
         this.toggleIsLoggedIn = this.toggleIsLoggedIn.bind(this)
         this.updateUserData = this.updateUserData.bind(this)
+        this.handleButtonClick = this.handleButtonClick.bind(this);
+    }
 
+    handleButtonClick(value) {
+        this.setState({displayInlog: value})
     }
 
     toggleIsLoggedIn(value) {
@@ -30,18 +35,23 @@ class App extends React.Component
 
         return (
             <div className="App">
-                <p><img alt='NOBBIE' src={nobbieheader}/></p>
-                <p className="intro">Looking for a name for your baby? Then nobbie is the place that can help you! Search through almost 10.000 names, see where they origin from and save all the names you like by making your own Nobbie Account! Want to see if your partner also likes the name? Connect your accounts and Nobbie will let you know if you both liked it!</p>
-                <Login
+                <Header
+                    handleButtonClick = {this.handleButtonClick}
+                />
+                <div className="mainSearch">
+                    <Intro/>
+                    {this.state.displayInlog === true &&
+                    <Login
                     toggleIsLoggedIn={this.toggleIsLoggedIn}
                     updateUserData={this.updateUserData}
                     userData={this.state.userData}
                     isLoggedIn={this.state.isLoggedIn}
-                />
-                <Search
+                    />}
+                    <Search
                     userData={this.state.userData}
                     isLoggedIn={this.state.isLoggedIn}
-                />
+                    />
+                </div>
             </div>
         );
     }
