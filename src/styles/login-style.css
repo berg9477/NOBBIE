@@ -1,16 +1,23 @@
-.Login {
-    border: 3px solid HSL(0, 0%, 80%);
-    background-color: HSL(0, 0%, 99%);
-    width: 600px;
-    height: 450px;
-    border-radius: 12px;
-    flex-wrap: wrap;
-    display: inline-flex;
+.Login{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
 }
 
-.Panel {
-    width: 220px;
-    flex-wrap: wrap;
-    display: inline-flex;
-    border-radius: 12px;
+.loginWrapper {
+    width: 100%;
+}
+
+.dottedRowVert{
+    align-self: center;
+    height: 95%;
+    width: 1px;
+    border: none;
+    border-left: 2px dotted #ab999c;
+}
+
+.ProfilePage{
+    font-family: "Courier New";
+    font-size: 18px;
 }

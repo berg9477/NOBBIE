@@ -65,7 +65,7 @@ class NewUser extends React.Component
     }
     render() {
         return (
-            <div className="Panel" onKeyPress={(event) => this.handleKeyDown(event)}>
+            <div className="loginWrapper" onKeyPress={(event) => this.handleKeyDown(event)}>
                 {this.state.resultCreate !== true && <div><h1>New at Nobbie?</h1>
                 <h3>create your new account now!</h3>
                 <Text

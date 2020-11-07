@@ -6,21 +6,22 @@ class ResultTable extends React.Component {
     constructor() {
         super()
         this.state = {
-            toggleLoading: false,
             allUsage: [],
             allRelated: [],
-            clickedName: ""
+            clickedName: "",
+            displayNameClicked: false
         }
         this.handleResultClicked = this.handleResultClicked.bind(this);
         this.renderTableData = this.renderTableData.bind(this);
+        this.handleCloseBTNClick = this.handleCloseBTNClick.bind(this);
     }
 
     handleResultClicked = async (name) => {
-        this.props.showSpecifics(false)
+        this.setState({displayNameClicked:false})
         this.setState({clickedName:name})
         this.setState({allUsage:[]})
         this.setState({allRelated:[]})
-        this.setState({toggleLoading:true});
+        this.props.setLoading(true)
         // const api_key = process.env.NAME_API_KEY
         try {
             const usageUrl = 'https://www.behindthename.com/api/lookup.json?name=' + name + '&key=sa583307807';
@@ -37,8 +38,8 @@ class ResultTable extends React.Component {
                     this.setState({allRelated: related.data.names})
                 })
             ])
-            this.setState({toggleLoading: false});
-            this.props.showSpecifics(true);
+            this.props.setLoading(false)
+            this.setState({displayNameClicked:true})
         }catch(error) {
             console.error(error);
         }
@@ -57,6 +58,10 @@ class ResultTable extends React.Component {
         })
     }
 
+    handleCloseBTNClick(value) {
+        this.setState({displayNameClicked: value})
+    }
+
 
     render() {
         return (
@@ -68,15 +73,19 @@ class ResultTable extends React.Component {
                     {this.renderTableData()}
                     </tbody>
                 </table>
-                {this.state.toggleLoading === true && <p>loading...</p>}
-                {(this.props.showName) &&
-                <NameResults
-                    name={this.state.clickedName}
-                    allUsage={this.state.allUsage}
-                    allRelated={this.state.allRelated}
-                    isLoggedIn={this.props.isLoggedIn}
-                    userData={this.props.userData}
-                    />
+                {(this.state.displayNameClicked === true) &&
+                <div className="PanelOverlay">
+                    <div className="ModalPanel">
+                        <span className="closeBTN" onClick={()=>this.handleCloseBTNClick(false)}>&times;</span>
+                        <NameResults
+                            name={this.state.clickedName}
+                            allUsage={this.state.allUsage}
+                            allRelated={this.state.allRelated}
+                            isLoggedIn={this.props.isLoggedIn}
+                            userData={this.props.userData}
+                            />
+                    </div>
+                </div>
                 }
             </div>
 

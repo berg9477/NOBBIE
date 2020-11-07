@@ -37,14 +37,15 @@ class App extends React.Component
                 <Header
                     handleButtonClick = {this.handleButtonClick}
                 />
-                <div className="mainScreen">
-                    {this.state.displayInlog === true &&
-                    <Login
+                {this.state.displayInlog === true &&
+                <Login
+                    handleButtonClick = {this.handleButtonClick}
                     toggleIsLoggedIn={this.toggleIsLoggedIn}
                     updateUserData={this.updateUserData}
                     userData={this.state.userData}
                     isLoggedIn={this.state.isLoggedIn}
-                    />}
+                />}
+                <div className="mainScreen">
                     <MainScreen
                     userData={this.state.userData}
                     isLoggedIn={this.state.isLoggedIn}

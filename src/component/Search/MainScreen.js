@@ -18,16 +18,13 @@ class MainScreen extends React.Component
             lstABC: [],
             searchResult: [],
             loading: false,
-            showNameSpecifics: false,
             noResult: false,
             display: false,
             filterText: "More filters",
-            filterTriangle: "filterDown"
         }
 
         this.handleClickCheck = this.handleClickCheck.bind(this);
         this.fetchData = this.fetchData.bind(this);
-        this.setShowNameSpecifics = this.setShowNameSpecifics.bind(this);
         this.setSearchResult = this.setSearchResult.bind(this);
         this.setLoading = this.setLoading.bind(this);
         this.addToSearchResult = this.addToSearchResult.bind(this);
@@ -135,10 +132,6 @@ class MainScreen extends React.Component
 
     }
 
-    setShowNameSpecifics(value) {
-        this.setState({showNameSpecifics: value})
-    }
-
     setSearchResult (res) {
         this.setState({searchResult:res})
     }
@@ -149,18 +142,15 @@ class MainScreen extends React.Component
     }
 
     openSpecificSearch () {
-        const val = this.state.display === true ? false : true
+        const val = this.state.display !== true
         const val2 = val === true ? "Less filters" : "More filters"
-        const val3 = val === true ? "filterUp" : "filterDown"
         this.setState({display: val})
         this.setState({filterText:val2})
-        this.setState({filterTriangle:val3})
     }
 
     handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             this.fetchData()
-            this.setShowNameSpecifics(false)
         }
     }
 
@@ -181,8 +171,9 @@ class MainScreen extends React.Component
                             id='nameSearch'
                             label='Type in your search...'
                         />
-                        <div className="filters" onClick={()=>this.openSpecificSearch()}>
-                            {this.state.filterText}  <div className={this.state.filterTriangle}> </div>
+                        <div className="filtersWrapper">
+                            <input type="checkbox" id="filters" onClick={()=>this.openSpecificSearch()}/>
+                            <label className="filterControl" htmlFor="filters">{this.state.filterText}</label>
                         </div>
                         {this.state.display === true &&
                         <div className="specificSearch">
@@ -199,13 +190,12 @@ class MainScreen extends React.Component
                     </div>
                 </div>
 
-                    {this.state.loading && <p>Loading....  <img alt='rainbow' height='20px' src={rainbow}/></p>}
+                    {this.state.loading && <h2>Loading....  <img alt='rainbow' height='30px' src={rainbow}/></h2>}
                     {this.state.noResult === true && <p>No result to display. Please try to specify your search more precisely.</p>}
 
                     <ResultTable
+                        setLoading={this.setLoading}
                         result={this.state.searchResult}
-                        showName={this.state.showNameSpecifics}
-                        showSpecifics={this.setShowNameSpecifics}
                         isLoggedIn={this.props.isLoggedIn}
                         userData={this.props.userData}
                     />
