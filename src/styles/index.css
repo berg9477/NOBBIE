@@ -56,8 +56,3 @@ select {
 #littleRainbow {
   mix-blend-mode: multiply;
 }
-
-img {
-  max-width: 100%;
-  height: auto;
-}
