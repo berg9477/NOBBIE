@@ -140,6 +140,7 @@
 #babyNames {
     border-collapse: collapse;
     width: 60%;
+    font-family: "Courier New";
 }
 
 #babyNames tr:hover {
@@ -161,5 +162,3 @@
 #babyNames td:hover {
     cursor: pointer;
 }
-
-

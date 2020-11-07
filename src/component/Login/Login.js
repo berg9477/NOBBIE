@@ -15,8 +15,8 @@ class Login extends React.Component
     render()
     {
         return (
-            <div className="LoginOverlay">
-                <div className="ProfilePanel">
+            <div className="PanelOverlay">
+                <div className="ModalPanel">
                     <span className="closeBTN" onClick={()=>this.props.handleButtonClick(false)}>&times;</span>
                   {this.props.isLoggedIn !== true &&
                       <div className='Login'>

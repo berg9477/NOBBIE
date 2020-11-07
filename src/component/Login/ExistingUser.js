@@ -35,28 +35,28 @@ class ExistingUser extends React.Component
     }
     render() {
         return (
-            <div className="Panel">
-                {(this.state.loginSuccess === '' || this.state.loginSuccess === false) &&
-                    <div onKeyPress={(event) => this.handleKeyDown(event)}>
-                    <h1><img alt='rainbow' height='20px' src={rainbow}/> Existing user</h1>
-                        <Text
-                            id="usernameLogin"
-                            label="Username"
-                        />
-                        <Text
-                            id="passwordLogin"
-                            label="Password"
-                            type="password"
-                        />
-                        <button onClick={()=>this.handleLoginClick()}>
-                            Login
-                        </button>
-                    </div>}
-                {(this.props.isLoggedIn === false && this.state.loginSuccess === false) &&
-                    <p>
-                        Incorrect username and/or password, please try again
-                    </p>}
-            </div>
+                <div className="loginWrapper">
+                    {(this.state.loginSuccess === '' || this.state.loginSuccess === false) &&
+                        <div onKeyPress={(event) => this.handleKeyDown(event)}>
+                        <h1><img alt='rainbow' id="littleRainbow" height='20px' src={rainbow}/> Existing user</h1>
+                            <Text
+                                id="usernameLogin"
+                                label="Username"
+                            />
+                            <Text
+                                id="passwordLogin"
+                                label="Password"
+                                type="password"
+                            />
+                            <button onClick={()=>this.handleLoginClick()}>
+                                Login
+                            </button>
+                        </div>}
+                    {(this.props.isLoggedIn === false && this.state.loginSuccess === false) &&
+                        <p>
+                            Incorrect username and/or password, please try again
+                        </p>}
+                </div>
         )
     }
 }

@@ -7,7 +7,8 @@ class ListOfSavedNames extends React.Component
         super()
         this.state = {
             sharedNamesList: [],
-            list: []
+            list: [],
+            showListButton: true
         }
         this.renderSavedNames = this.renderSavedNames.bind(this)
         this.getConnectionList = this.getConnectionList.bind(this)
@@ -17,12 +18,13 @@ class ListOfSavedNames extends React.Component
     getNameList () {
         this.setState({list:this.renderSavedNames(this.props.SavedNamesList)})
         this.getConnectionList()
+        this.setState({showListButton:false})
     }
 
     renderSavedNames (list) {
         return list.map((item, index) => {
             return (
-                <li key={index}>{item}</li>
+                <span key={index}>{item}<br/></span>
             )
         })
     }
@@ -48,21 +50,20 @@ class ListOfSavedNames extends React.Component
 
     render() {
         return (
-            <div>
+            <div>{this.state.showListButton &&
                 <button onClick={() => this.getNameList()}>
                     Show my saved names
-                </button>
+                </button>}
                 {this.state.list.length !== 0 &&
                 <div>Here is an overview of all the baby names you have saved:
-                    <ul key="list">
-                        {this.state.list}
-                    </ul>
+                    <p>{this.state.list}</p>
                 </div>}
                 {this.state.sharedNamesList.length !== 0 &&
-                <div>Here is an overview of all the baby names you and {this.props.connection} share:
-                    <ul key="shared">
-                        {this.state.sharedNamesList}
-                    </ul>
+                <div>
+                    <div className="dottedRowHorz"> </div>
+                    <br/>
+                    Here is an overview of all the baby names you and {this.props.connection} share:
+                    <p>{this.state.sharedNamesList}</p>
                 </div>}
                 {this.props.SavedNamesList === undefined &&
                 <div>

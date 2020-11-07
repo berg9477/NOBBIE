@@ -52,3 +52,12 @@ select {
   color: HSL(0, 0%, 0%);
   margin-left: 10px;
 }
+
+#littleRainbow {
+  mix-blend-mode: multiply;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

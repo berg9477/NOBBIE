@@ -61,15 +61,15 @@ class NameResults extends React.Component
                 />}
                 {this.props.allUsage.gender !== undefined &&
                 <div>
-
-                    <h2>{this.renderGenderData(this.props.allUsage.gender)}</h2>
-                    {this.renderUsageData()}
+                    <p>{this.renderGenderData(this.props.allUsage.gender)}</p>
+                    <div className="dottedRowHorz"> </div>
+                    <p>{this.renderUsageData()}</p>
+                    <div className="dottedRowHorz"> </div>
                     {this.props.allRelated.length > 0 &&
-                    <div>This name is related to the following other names:{this.renderRelatedData()}</div>}
+                    <p>This name is related to the following other names:{this.renderRelatedData()}</p>}
                 </div>}
                 {this.props.allUsage.length === 0 &&
                 <p>This is a very unique name, there is no additional information to view</p>}
-
             </div>
         )
     }

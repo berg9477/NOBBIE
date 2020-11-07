@@ -18,7 +18,6 @@ class MainScreen extends React.Component
             lstABC: [],
             searchResult: [],
             loading: false,
-            showNameSpecifics: false,
             noResult: false,
             display: false,
             filterText: "More filters",
@@ -26,7 +25,6 @@ class MainScreen extends React.Component
 
         this.handleClickCheck = this.handleClickCheck.bind(this);
         this.fetchData = this.fetchData.bind(this);
-        this.setShowNameSpecifics = this.setShowNameSpecifics.bind(this);
         this.setSearchResult = this.setSearchResult.bind(this);
         this.setLoading = this.setLoading.bind(this);
         this.addToSearchResult = this.addToSearchResult.bind(this);
@@ -134,10 +132,6 @@ class MainScreen extends React.Component
 
     }
 
-    setShowNameSpecifics(value) {
-        this.setState({showNameSpecifics: value})
-    }
-
     setSearchResult (res) {
         this.setState({searchResult:res})
     }
@@ -157,7 +151,6 @@ class MainScreen extends React.Component
     handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             this.fetchData()
-            this.setShowNameSpecifics(false)
         }
     }
 
@@ -197,13 +190,12 @@ class MainScreen extends React.Component
                     </div>
                 </div>
 
-                    {this.state.loading && <p>Loading....  <img alt='rainbow' height='20px' src={rainbow}/></p>}
+                    {this.state.loading && <h2>Loading....  <img alt='rainbow' height='30px' src={rainbow}/></h2>}
                     {this.state.noResult === true && <p>No result to display. Please try to specify your search more precisely.</p>}
 
                     <ResultTable
+                        setLoading={this.setLoading}
                         result={this.state.searchResult}
-                        showName={this.state.showNameSpecifics}
-                        showSpecifics={this.setShowNameSpecifics}
                         isLoggedIn={this.props.isLoggedIn}
                         userData={this.props.userData}
                     />

@@ -1,6 +1,7 @@
 import React from "react";
 import ListOfSavedNames from "./ListOfSavedNames";
 import MakeUserConnection from "./MakeUserConnection";
+import rainbow from "../../../IMG/rainbow.png";
 
 class ProfilePage extends React.Component
 {
@@ -29,8 +30,9 @@ class ProfilePage extends React.Component
         const connectionMade = this.props.userData.Connection !== undefined;
         const user = this.props.userData
         return (
-            <div>
-                <h1>Hello {user.Firstname} {user.Lastname}</h1>
+            <div className="ProfilePage">
+                <h1><img alt='rainbow' id="littleRainbow" height='30px' src={rainbow}/> Hello {user.Firstname} {user.Lastname}</h1>
+                <div className="dottedRowHorz"> </div>
                 {connectionMade === false &&
                     <button onClick={() => this.setMakeConnection()}>make connection to other user</button>}
                 {connectionMade === true &&
