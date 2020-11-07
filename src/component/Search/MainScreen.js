@@ -22,7 +22,6 @@ class MainScreen extends React.Component
             noResult: false,
             display: false,
             filterText: "More filters",
-            filterTriangle: "filterDown"
         }
 
         this.handleClickCheck = this.handleClickCheck.bind(this);
@@ -149,12 +148,10 @@ class MainScreen extends React.Component
     }
 
     openSpecificSearch () {
-        const val = this.state.display === true ? false : true
+        const val = this.state.display !== true
         const val2 = val === true ? "Less filters" : "More filters"
-        const val3 = val === true ? "filterUp" : "filterDown"
         this.setState({display: val})
         this.setState({filterText:val2})
-        this.setState({filterTriangle:val3})
     }
 
     handleKeyDown = (e) => {
@@ -181,8 +178,9 @@ class MainScreen extends React.Component
                             id='nameSearch'
                             label='Type in your search...'
                         />
-                        <div className="filters" onClick={()=>this.openSpecificSearch()}>
-                            {this.state.filterText}  <div className={this.state.filterTriangle}> </div>
+                        <div className="filtersWrapper">
+                            <input type="checkbox" id="filters" onClick={()=>this.openSpecificSearch()}/>
+                            <label className="filterControl" htmlFor="filters">{this.state.filterText}</label>
                         </div>
                         {this.state.display === true &&
                         <div className="specificSearch">

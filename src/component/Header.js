@@ -13,7 +13,7 @@ class Header extends React.Component
             <div>
             <div className="header">
                 <img alt='NOBBIE' height='120px' src={nobbieheader}/>
-                <p className="login" onClick={()=>this.props.handleButtonClick(true)}>Login / Sign up</p>
+                <p className="loginBTN" onClick={()=>this.props.handleButtonClick(true)}>Login / Sign up</p>
             </div>
                 <div className="join" onClick={()=>this.props.handleButtonClick(true)}>Join Nobbie today and find your name even faster! <div className="triangle"></div>
                 </div>

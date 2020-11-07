@@ -1,5 +1,5 @@
 import React from "react";
-import firebs from "../../data/firebaseConfig";
+import firebs from "../../../data/firebaseConfig";
 
 class ListOfSavedNames extends React.Component
 {

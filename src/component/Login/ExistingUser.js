@@ -2,6 +2,7 @@ import React from "react";
 import '../../styles/login-style.css';
 import Text from "../input/Text";
 import firebs from "../../data/firebaseConfig";
+import rainbow from "../../IMG/rainbow.png";
 
 class ExistingUser extends React.Component
 {
@@ -37,7 +38,7 @@ class ExistingUser extends React.Component
             <div className="Panel">
                 {(this.state.loginSuccess === '' || this.state.loginSuccess === false) &&
                     <div onKeyPress={(event) => this.handleKeyDown(event)}>
-                    <h1>Existing user</h1>
+                    <h1><img alt='rainbow' height='20px' src={rainbow}/> Existing user</h1>
                         <Text
                             id="usernameLogin"
                             label="Username"

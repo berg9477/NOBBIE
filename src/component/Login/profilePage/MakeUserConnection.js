@@ -1,6 +1,6 @@
 import React from "react";
-import Text from "../input/Text";
-import firebs from "../../data/firebaseConfig";
+import Text from "../../input/Text";
+import firebs from "../../../data/firebaseConfig";
 
 
 class MakeUserConnection extends React.Component

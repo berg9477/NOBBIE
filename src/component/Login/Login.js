@@ -2,7 +2,7 @@ import React from "react";
 import '../../styles/login-style.css';
 import NewUser from "./NewUser";
 import ExistingUser from "./ExistingUser";
-import ProfilePage from "../profilePage/profilePage";
+import ProfilePage from "./profilePage/profilePage";
 
 class Login extends React.Component
 {
@@ -15,16 +15,18 @@ class Login extends React.Component
     render()
     {
         return (
-            <div>
-                <div className="Login">
+            <div className="LoginOverlay">
+                <div className="ProfilePanel">
+                    <span className="closeBTN" onClick={()=>this.props.handleButtonClick(false)}>&times;</span>
                   {this.props.isLoggedIn !== true &&
-                      <div>
+                      <div className='Login'>
                           <ExistingUser
                           toggleIsLoggedIn={this.props.toggleIsLoggedIn}
                           updateUserData={this.props.updateUserData}
                           isLoggedIn={this.props.isLoggedIn}
                           userData={this.props.userData}
                           />
+                          <div className="dottedRowVert"> </div>
                           <NewUser
                           updateUserData={this.props.updateUserData}
                           userData={this.props.userData}

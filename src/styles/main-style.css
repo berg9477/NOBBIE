@@ -34,29 +34,39 @@
 }
 
 /*link for more or less filters*/
-.filters{
+
+.filtersWrapper{
+    background-color: transparent;
     text-align: right;
     width: 65%;
     margin-top: -15px;
     align-self: center;
+}
+
+#filters{
+    display: none;
+}
+
+#filters+ label{
     cursor: pointer;
 }
 
-.filterUp, .filterDown{
+#filters+ label::after{
+    content: "";
     font-size: 18px;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     display: inline-block;
-}
-
-.filterDown{
-    border-top: 12px solid;
-}
-
-.filterUp{
     border-bottom: 12px solid;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+}
+
+#filters:checked + label::after{
+    transform: rotate(180deg);
+    transition: transform 0.3s;
 }
 
 /*results for more filters*/
