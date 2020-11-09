@@ -35,7 +35,9 @@ class ResultTable extends React.Component {
                     }
                 }),
                 await axios.get(relatedUrl).then((related) => {
-                    this.setState({allRelated: related.data.names})
+                    if (related.data.error === undefined) {
+                        this.setState({allRelated: related.data.names})
+                    }
                 })
             ])
             this.props.setLoading(false)
