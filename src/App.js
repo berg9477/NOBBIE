@@ -19,7 +19,9 @@ class App extends React.Component
     }
 
     handleButtonClick(value) {
+        const overflow = value ? "hidden" : "auto";
         this.setState({displayInlog: value})
+        document.body.style.overflow = overflow;
     }
 
     toggleIsLoggedIn(value) {

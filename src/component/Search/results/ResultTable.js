@@ -40,6 +40,8 @@ class ResultTable extends React.Component {
             ])
             this.props.setLoading(false)
             this.setState({displayNameClicked:true})
+            document.body.style.overflow = "hidden";
+
         }catch(error) {
             console.error(error);
         }
@@ -60,6 +62,7 @@ class ResultTable extends React.Component {
 
     handleCloseBTNClick(value) {
         this.setState({displayNameClicked: value})
+        document.body.style.overflow = "auto";
     }
 
 

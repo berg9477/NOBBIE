@@ -11,7 +11,6 @@
 #searchPanel{
     width: 73%;
     height: 100%;
-    align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,7 +118,6 @@
     background-color: HSL(0, 0%, 44%);
 }
 
-
 .nameSearch{
     width: 400px;
     border-radius: 12px;
@@ -166,5 +164,21 @@
 @media screen and (max-width: 576px) {
     #searchPanel {
         width: 100%;
+    }
+
+    .nameSearch {
+        width: 100%;
+        font-size: 14px;
+        margin: 0 0 20px 0;
+    }
+
+    .specificSearch{
+
+        font-size: 14px;
+        margin: 10px 0;
+    }
+
+    .lettersWrapper {
+        width: 90%;
     }
 }
