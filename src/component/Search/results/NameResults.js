@@ -24,7 +24,7 @@ class NameResults extends React.Component
                 gen = 'males'
             }
             return (
-                <p key={index}>the {item.usage_full} use it for {gen}</p>
+                <div key={index}>the {item.usage_full} use it for {gen}</div>
             )
         })
     }
@@ -63,7 +63,7 @@ class NameResults extends React.Component
                 <div>
                     <p>{this.renderGenderData(this.props.allUsage.gender)}</p>
                     <div className="dottedRowHorz"> </div>
-                    <p>{this.renderUsageData()}</p>
+                    <div>{this.renderUsageData()}</div>
                     <div className="dottedRowHorz"> </div>
                     {this.props.allRelated.length > 0 &&
                     <p>This name is related to the following other names:{this.renderRelatedData()}</p>}
