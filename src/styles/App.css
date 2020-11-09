@@ -122,7 +122,13 @@ height: 120px;
   }
 
   #logo {
-    height: 80px;
+    height: 60px;
+  }
+
+  .loginBTN{
+    font-size: 10px;
+    cursor: pointer;
+    align-self: flex-end;
   }
 
   .join {
@@ -130,7 +136,7 @@ height: 120px;
     font-size: 11px;
   }
   .mainScreen {
-    width: 450px;
+    width: 90%;
   }
 
   .ModalPanel{
