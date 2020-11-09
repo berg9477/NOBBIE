@@ -9,9 +9,8 @@
 }
 
 #searchPanel{
-    width: 625px;
+    width: 73%;
     height: 100%;
-    background: transparent;
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -161,4 +160,11 @@
 }
 #babyNames td:hover {
     cursor: pointer;
+}
+
+/*sizes to make app views on mobile phone*/
+@media screen and (max-width: 576px) {
+    #searchPanel {
+        width: 100%;
+    }
 }

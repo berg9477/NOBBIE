@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+#logo{
+height: 120px;
+}
+
 .header {
   width:98%;
   height:120px;
@@ -109,4 +113,31 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+/*sizes to make app views on mobile phone*/
+@media screen and (max-width: 576px) {
+  .header {
+    height: 80px;
+  }
+
+  #logo {
+    height: 80px;
+  }
+
+  .join {
+    height: 10px;
+    font-size: 11px;
+  }
+  .mainScreen {
+    width: 450px;
+  }
+
+  .ModalPanel{
+    margin: 0px auto auto auto;
+    width: 90%;
+    height: 75%;
+    z-index: 2;
+    padding: 10px;
+  }
 }

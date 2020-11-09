@@ -21,3 +21,14 @@
     font-family: "Courier New";
     font-size: 18px;
 }
+
+@media screen and (max-width: 576px) {
+    .Login {
+        flex-direction: column;
+    }
+
+    .dottedRowVert {
+        display: none;
+    }
+
+}
