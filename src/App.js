@@ -38,6 +38,7 @@ class App extends React.Component
             <div className="App">
                 <Header
                     handleButtonClick = {this.handleButtonClick}
+                    isLoggedIn={this.state.isLoggedIn}
                 />
                 {this.state.displayInlog === true &&
                 <Login
