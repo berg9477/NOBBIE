@@ -9,31 +9,38 @@ class MakeUserConnection extends React.Component
         super()
         this.state = {
             connectionSuccess: '',
-            nameOfUser: ''
+            nameOfUser: '',
+            failedMessage: ''
         }
         this.handleMakeConnection = this.handleMakeConnection.bind(this)
     }
 
     handleMakeConnection () {
         const userToConnect = document.getElementById('nameOfUser').value;
-        this.setState({nameOfUser:userToConnect})
-        firebs.database().ref('Users/' + userToConnect).on('value', (snapshot) => {
-            const usernameExists = !!snapshot.val();
-            connectUsers(usernameExists);
-        })
-        const connectUsers = (usernameExists) => {
-            if (usernameExists === true) {
-                firebs.database().ref('Users/' + this.props.Username).update({
-                    Connection: userToConnect
-                })
-                firebs.database().ref('Users/' + userToConnect).update({
-                    Connection: this.props.Username
-                })
-                this.setState({connectionSuccess: true})
+        if(userToConnect !== this.props.Username) {
+            this.setState({nameOfUser: userToConnect})
+            firebs.database().ref('Users/' + userToConnect).on('value', (snapshot) => {
+                const usernameExists = !!snapshot.val();
+                connectUsers(usernameExists);
+            })
+            const connectUsers = (usernameExists) => {
+                if (usernameExists === true) {
+                    firebs.database().ref('Users/' + this.props.Username).update({
+                        Connection: userToConnect
+                    })
+                    firebs.database().ref('Users/' + userToConnect).update({
+                        Connection: this.props.Username
+                    })
+                    this.setState({connectionSuccess: true})
+                } else {
+                    this.setState({connectionSuccess: false})
+                    this.setState({failedMessage:"This username is unknown, please try again."})
+                }
+
             }
-            else {
-                this.setState({connectionSuccess: false})
-            }
+        } else {
+            this.setState({connectionSuccess: false})
+            this.setState({failedMessage:"Cannot connect to your own username, please try again."})
 
         }
     }
@@ -51,7 +58,7 @@ class MakeUserConnection extends React.Component
             </div>}
                 {this.state.connectionSuccess === false &&
                 <p>
-                    This username is unknown, please try again.
+                    {this.state.failedMessage}
                 </p>}
             </div>
         )

@@ -18,12 +18,11 @@ class NewUser extends React.Component
         const username = document.getElementById('usernameNew').value;
         const pass = document.getElementById('passwordNew').value;
         let usernameExists = null;
-        const conditions = ["#", ".", "$", "[", "]"]
+        const conditions = ["#", ".", "$", "[", "]"]    //Firebase does not accept these for the username
         const checkUsernameInput = conditions.some(item => username.includes(item))
-        console.log(checkUsernameInput)
         if(checkUsernameInput === true){
             this.setState({resultCreate: false})
-            this.setState({failedMessage:"Username cannot contain # . $ [ ], please try again"})
+            this.setState({failedMessage:"Username cannot contain # . $ [ ], please try again with other credentials"})
         }
         else {
             firebs.database().ref('Users/' + username).on('value', (snapshot) => {
