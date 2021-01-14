@@ -3,6 +3,8 @@ import MainScreen from "./component/Search/MainScreen";
 import './styles/App.css';
 import Login from "./component/Login/Login";
 import Header from "./component/Header";
+import Footer from "./component/Footer";
+
 
 class App extends React.Component
 {
@@ -54,6 +56,7 @@ class App extends React.Component
                     isLoggedIn={this.state.isLoggedIn}
                     />
                 </div>
+                <Footer/>
             </div>
         );
     }
