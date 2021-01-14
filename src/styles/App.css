@@ -15,7 +15,7 @@ headerWrapper {
   width:98%;
   height:120px;
   background-color: HSL(123, 28.8%, 87.36%);
-  font-family: Gadugi;
+  font-family: var(--font);
   font-weight: normal;
   font-size: 15px;
   padding-left: 2%;
@@ -38,7 +38,7 @@ headerWrapper {
   height: 21px;
   background: HSL(350, 10%, 63%);
   text-align: center;
-  font-family: Gadugi;
+  font-family: var(--font);
   font-weight: normal;
   font-size: 15px;
   color: white;
@@ -161,7 +161,7 @@ headerWrapper {
   width: 100%;
   height: 40px;
   background: HSL(350, 10%, 75%);
-  font-family: Gadugi;
+  font-family: var(--font);
   font-weight: normal;
   font-size: 15px;
   color: white;
@@ -171,4 +171,5 @@ headerWrapper {
 
 .aboutBTN{
   cursor: pointer;
+  color: white;
 }

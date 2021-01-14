@@ -1,5 +1,6 @@
 import React from "react";
 import nobbieheader from "../IMG/nobbieheader.png";
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component
 {
@@ -12,7 +13,9 @@ class Header extends React.Component
         return (
             <div className="headerWrapper">
             <div className="header">
-                <img alt='NOBBIE' id="logo" src={nobbieheader}/>
+                <Link to="/">
+                    <img alt='NOBBIE' id="logo" src={nobbieheader}/>
+                </Link>
                 {this.props.isLoggedIn === false &&
                 <p className="loginBTN" onClick={()=>this.props.handleButtonClick(true)}>
                     Login / Sign up

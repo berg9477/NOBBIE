@@ -1,15 +1,15 @@
 import React from 'react';
-import Text from "../input/Text";
-import firebs from "../../data/firebaseConfig";
-import ResultTable from "./results/ResultTable";
-import ABCLists from "./ABCLists";
-import GenderSelect from "../input/GenderSelect";
-import Alphabetical from "./Alphabetical";
-import Intro from "../Intro";
-import rainbow from "../../IMG/rainbow.png"
+import Text from "../component/input/Text";
+import firebs from "../data/firebaseConfig";
+import ResultTable from "../component/Search/results/ResultTable";
+import ABCLists from "../component/Search/ABCLists";
+import GenderSelect from "../component/input/GenderSelect";
+import Alphabetical from "../component/Search/Alphabetical";
+import Intro from "../component/Intro";
+import rainbow from "../IMG/rainbow.png"
 
 
-class MainScreen extends React.Component
+class Home extends React.Component
 {
     constructor() {
         super()
@@ -157,8 +157,8 @@ class MainScreen extends React.Component
     render()
     {
         return (
-            <div>
-                <div className="searchWrapper" onKeyPress={(event) => this.handleKeyDown(event)}>
+            <div className="mainScreen">
+                <div className="mainWrapper" onKeyPress={(event) => this.handleKeyDown(event)}>
                     <Intro/>
                     <div id="searchPanel">
                         <Alphabetical
@@ -204,4 +204,4 @@ class MainScreen extends React.Component
     }
 }
 
-export default MainScreen;
+export default Home;

@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class Footer extends React.Component
@@ -12,10 +12,10 @@ class Footer extends React.Component
     render() {
         return (
             <div className="footer">
-                &copy; 2021 Nobbie, inc. All rights reserved -
-                    {/*<Link to="/About" className="aboutBTN">*/}
+                &copy; 2021 Nobbie, inc. All rights reserved - &nbsp;
+                    <Link to="/About" className="aboutBTN">
                         About Us
-                    {/*</Link>*/}
+                    </Link>
             </div>
         )
     }
