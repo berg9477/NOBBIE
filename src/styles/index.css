@@ -1,6 +1,11 @@
+:root {
+  --font: Gadugi;
+  --font2: Courier New;
+}
+
 body {
   margin: 0;
-  font-family: Gadugi;
+  font-family: var(--font);
   font-weight: normal;
   font-size: 15px;
   text-align: center;
@@ -15,7 +20,7 @@ h1{
 }
 
 input{
-  font-family: "Courier New";
+  font-family: var(--font2);
   padding: 8px;
 }
 
@@ -49,7 +54,7 @@ select {
   border-radius: 2px;
   padding: 10px;
   font-size: 14px;
-  font-family: "Courier New";
+  font-family: var(--font2);
   color: HSL(0, 0%, 0%);
   margin-left: 10px;
 }

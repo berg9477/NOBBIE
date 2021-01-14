@@ -1,9 +1,14 @@
 import React from 'react';
-import MainScreen from "./component/Search/MainScreen";
-import './styles/App.css';
+import Home from "./Pages/Home";
 import Login from "./component/Login/Login";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
+import About from "./Pages/About";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
 
 
 class App extends React.Component
@@ -37,27 +42,34 @@ class App extends React.Component
     {
 
         return (
-            <div className="App">
-                <Header
-                    handleButtonClick = {this.handleButtonClick}
-                    isLoggedIn={this.state.isLoggedIn}
-                />
-                {this.state.displayInlog === true &&
-                <Login
-                    handleButtonClick = {this.handleButtonClick}
-                    toggleIsLoggedIn={this.toggleIsLoggedIn}
-                    updateUserData={this.updateUserData}
-                    userData={this.state.userData}
-                    isLoggedIn={this.state.isLoggedIn}
-                />}
-                <div className="mainScreen">
-                    <MainScreen
-                    userData={this.state.userData}
-                    isLoggedIn={this.state.isLoggedIn}
+            <Router>
+                <div className="App">
+                    <Header
+                        handleButtonClick = {this.handleButtonClick}
+                        isLoggedIn={this.state.isLoggedIn}
                     />
+                    {this.state.displayInlog === true &&
+                    <Login
+                        handleButtonClick = {this.handleButtonClick}
+                        toggleIsLoggedIn={this.toggleIsLoggedIn}
+                        updateUserData={this.updateUserData}
+                        userData={this.state.userData}
+                        isLoggedIn={this.state.isLoggedIn}
+                    />}
+                    <Switch>
+                        <Route exact path="/">
+                            <Home
+                            userData={this.state.userData}
+                            isLoggedIn={this.state.isLoggedIn}
+                            />
+                        </Route>
+                        <Route path="/About">
+                            <About/>
+                        </Route>
+                    </Switch>
+                    <Footer/>
                 </div>
-                <Footer/>
-            </div>
+            </Router>
         );
     }
 }
