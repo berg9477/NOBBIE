@@ -34,7 +34,9 @@ class ProfilePage extends React.Component
                 <h1><img alt='rainbow' id="littleRainbow" height='30px' src={rainbow}/> Hello {user.Firstname} {user.Lastname}</h1>
                 <div className="dottedRowHorz"> </div>
                 {connectionMade === false &&
-                    <button onClick={() => this.setMakeConnection()}>make connection to other user</button>}
+                <p>
+                    <button onClick={() => this.setMakeConnection()}>make connection to other user</button>
+                </p>}
                 {connectionMade === true &&
                     <p>
                         You are connected to user <b>{this.props.userData.Connection}</b>

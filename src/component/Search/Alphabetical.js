@@ -1,6 +1,6 @@
 import React from 'react';
 import abcData from "../../data/abcData";
-import "../../styles/main-style.css";
+import "../../styles/search-style.css";
 import firebs from "../../data/firebaseConfig";
 import Button from "../input/Button";
 

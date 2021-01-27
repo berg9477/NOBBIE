@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../../styles/main-style.css";
+import "../../../styles/results-style.css";
 import axios from "axios";
 import NameResults from "./NameResults";
 class ResultTable extends React.Component {

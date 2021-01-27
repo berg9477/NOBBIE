@@ -1,3 +1,5 @@
+/*This file contains all CSS for the search panel and filtering options*/
+
 .mainWrapper{
     display: flex;
     flex-direction: column;
@@ -125,40 +127,6 @@
     margin: 20px;
 }
 
-
-/*Result table*/
-.resultWrapper{
-    display: flex;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-}
-
-#babyNames {
-    border-collapse: collapse;
-    width: 60%;
-    font-family: var(--font2);
-}
-
-#babyNames tr:hover {
-    background-color: #ddd;
-}
-
-#babyNames th {
-    border:none;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    border-radius: 60% 60% 0% 0%;
-    background-color: HSL(123, 31%, 73%);
-    color: white;
-}
-
-#babyNames tr{
-    border-bottom: solid 1px;
-}
-#babyNames td:hover {
-    cursor: pointer;
-}
 
 /*sizes to make app views on mobile phone*/
 @media screen and (max-width: 576px) {

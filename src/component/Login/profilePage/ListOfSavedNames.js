@@ -50,7 +50,7 @@ class ListOfSavedNames extends React.Component
 
     render() {
         return (
-            <div>{this.state.showListButton &&
+            <div>{(this.state.showListButton && this.props.SavedNamesList !== undefined) &&
                 <button onClick={() => this.getNameList()}>
                     Show my saved names
                 </button>}

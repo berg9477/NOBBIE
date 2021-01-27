@@ -1,3 +1,4 @@
+/*This file contains the CSS settings that build the main page and generic items that are used on beeing used multiple times through the app*/
 .App{
   text-align: center;
   display: flex;
@@ -172,4 +173,8 @@ headerWrapper {
 .aboutBTN{
   cursor: pointer;
   color: white;
+}
+
+#littleRainbow {
+  mix-blend-mode: multiply;
 }
