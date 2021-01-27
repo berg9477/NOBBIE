@@ -51,8 +51,8 @@ class LikeName extends React.Component
         const isLiked = list.indexOf(this.props.nameToAdd) > -1
         return (
             <div>
-                {isLiked === false && <img onClick={() => this.handleClickLike(list)}  width="40px" alt="like this name" src={hartje}/>}
-                {isLiked === true && <img width="40px" onClick={() => this.handleClickUnLike(list)} alt="unlike this name" src={hartjeliked}/>}
+                {isLiked === false && <img onClick={() => this.handleClickLike(list)} id="hartje" alt="like this name" src={hartje}/>}
+                {isLiked === true && <img onClick={() => this.handleClickUnLike(list)} id="hartje" alt="unlike this name" src={hartjeliked}/>}
                 {this.state.nameWithConnection === true &&
                 <NameWithConnection
                     connection = {this.props.userData.Connection}

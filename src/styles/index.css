@@ -1,3 +1,5 @@
+/*this file contains all generic CSS settings*/
+
 :root {
   --font: Gadugi;
   --font2: Courier New;
@@ -59,6 +61,4 @@ select {
   margin-left: 10px;
 }
 
-#littleRainbow {
-  mix-blend-mode: multiply;
-}
+

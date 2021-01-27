@@ -1,3 +1,5 @@
+/*This file contains all CSS concerning the login and profile page
+*/
 .Login{
     display: flex;
     flex-direction: row;
