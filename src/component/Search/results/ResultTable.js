@@ -2,6 +2,8 @@ import React from 'react';
 import "../../../styles/results-style.css";
 import axios from "axios";
 import NameResults from "./NameResults";
+
+
 class ResultTable extends React.Component {
     constructor() {
         super()
@@ -22,10 +24,10 @@ class ResultTable extends React.Component {
         this.setState({allUsage:[]})
         this.setState({allRelated:[]})
         this.props.setLoading(true)
-        // const api_key = process.env.NAME_API_KEY
         try {
-            const usageUrl = 'https://www.behindthename.com/api/lookup.json?name=' + name + '&key=sa583307807';
-            const relatedUrl = 'https://www.behindthename.com/api/related.json?name=' + name + '&key=sa583307807';
+            const key = process.env.REACT_APP_API_KEY
+            const usageUrl = 'https://www.behindthename.com/api/lookup.json?name=' + name + '&key=' + key;
+            const relatedUrl = 'https://www.behindthename.com/api/related.json?name=' + name + '&key=' + key;
             axios.all([
                 await axios.get(usageUrl).then((usage) => {
                     if (usage.data.error === undefined) {
