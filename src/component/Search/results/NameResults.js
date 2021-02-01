@@ -1,9 +1,6 @@
 import React from "react";
 import LikeName from "./LikeName";
 
-
-
-
 class NameResults extends React.Component
 {
     constructor() {
