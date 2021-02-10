@@ -1,8 +1,7 @@
 import React from 'react';
-import '../../styles/App.css';
 
-
-const Text = ({label, id, type}) => {
+/*Generic input component used throughout the app*/
+const InputField = ({label, id, type}) => {
     return (
         <div>
             <input
@@ -15,4 +14,4 @@ const Text = ({label, id, type}) => {
         </div>)
 };
 
-export default Text
+export default InputField

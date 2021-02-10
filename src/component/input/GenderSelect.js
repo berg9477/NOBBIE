@@ -1,6 +1,6 @@
 import React from "react";
 
-
+/*Dropdown menu for selecting specific gender in filtering search options*/
 const GenderSelect = () => {
     return (
         <div>

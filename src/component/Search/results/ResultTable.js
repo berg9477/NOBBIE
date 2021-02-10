@@ -18,25 +18,35 @@ class ResultTable extends React.Component {
         this.handleCloseBTNClick = this.handleCloseBTNClick.bind(this);
     }
 
+    /*Function is triggered when specific name is clicked
+    it connects to the two rest api's for getting background information
+    on the specific name*/
     handleResultClicked = async (name) => {
+        /*set all state objects to default value*/
         this.setState({displayNameClicked:false})
         this.setState({clickedName:name})
         this.setState({allUsage:[]})
         this.setState({allRelated:[]})
         this.props.setLoading(true)
         try {
+            /*value of key can be found in .env file, this is hidden for public use in netlify*/
             const key = process.env.REACT_APP_API_KEY
             const usageUrl = 'https://www.behindthename.com/api/lookup.json?name=' + name + '&key=' + key;
             const relatedUrl = 'https://www.behindthename.com/api/related.json?name=' + name + '&key=' + key;
-            axios.all([
+            /*used axios.all so both rest api's can be run at in one call*/
+            await axios.all([
+                /*get results for the usages of a name*/
                 await axios.get(usageUrl).then((usage) => {
+                    /*if rest api has no results to give back the data.error will have a value, if not then results are valid*/
                     if (usage.data.error === undefined) {
                         usage.data.forEach(item => {
                             this.setState({allUsage: item})
                         })
                     }
                 }),
+                /*get results of related names of a name*/
                 await axios.get(relatedUrl).then((related) => {
+                    /*if rest api has no results to give back the data.error will have a value, if not then results are valid*/
                     if (related.data.error === undefined) {
                         this.setState({allRelated: related.data.names})
                     }
@@ -51,6 +61,7 @@ class ResultTable extends React.Component {
         }
     };
 
+    /*function renders the rows of the table of results*/
     renderTableData () {
         return this.props.result.map((item, index) => {
             let name = item[0][0].toUpperCase() + item[0].substring(1);
@@ -64,6 +75,7 @@ class ResultTable extends React.Component {
         })
     }
 
+    /*function is triggered when the X is clicked in the result screen*/
     handleCloseBTNClick(value) {
         this.setState({displayNameClicked: value})
         document.body.style.overflow = "auto";
@@ -73,6 +85,8 @@ class ResultTable extends React.Component {
     render() {
         return (
             <div className="resultWrapper">
+
+                {/*set up table of results*/}
                 <table key="babyNames" id="babyNames">
                     <tbody>
                     {this.props.result.length !== 0 &&
@@ -80,6 +94,8 @@ class ResultTable extends React.Component {
                     {this.renderTableData()}
                     </tbody>
                 </table>
+
+                {/*Shows screen with specific name info, is opened upon clicking on name in results table*/}
                 {(this.state.displayNameClicked === true) &&
                 <div className="PanelOverlay">
                     <div className="ModalPanel">

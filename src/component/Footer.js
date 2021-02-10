@@ -12,6 +12,7 @@ class Footer extends React.Component
     render() {
         return (
             <div className="footer">
+                {/*footer with link to the About page*/}
                 &copy; 2021 Nobbie, inc. All rights reserved - &nbsp;
                     <Link to="/About" className="aboutBTN">
                         About Us

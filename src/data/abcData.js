@@ -1,3 +1,4 @@
+/*list object with the entire alphabet*/
 const abcData = [
     {
         id: "A",

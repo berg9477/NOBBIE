@@ -11,6 +11,7 @@ class NameWithConnection extends React.Component
 
     render() {
         return (
+            /*Item is shown when user likes a name connection also liked*/
             <div>
                 <img width="50px" alt="party" src={feest}/>
                 You and {this.props.connection} both liked {this.props.name}
