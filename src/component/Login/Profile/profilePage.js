@@ -16,6 +16,7 @@ class ProfilePage extends React.Component
 
     }
 
+    /*functions for showing and hiding profile information saved name list and make connection*/
     setShowNameList () {
         this.setState({showNameList:true})
         this.setState({makeConnection:false})
@@ -27,12 +28,15 @@ class ProfilePage extends React.Component
     }
 
     render() {
+        /*checks if a connection has already been made with another user*/
         const connectionMade = this.props.userData.Connection !== undefined;
         const user = this.props.userData
         return (
             <div className="ProfilePage">
                 <h1><img alt='rainbow' id="littleRainbow" height='30px' src={rainbow}/> Hello {user.Firstname} {user.Lastname}</h1>
                 <div className="dottedRowHorz"> </div>
+
+                {/*When connection is not made yet button to make connection is shown, else username of connection is shown*/}
                 {connectionMade === false &&
                 <p>
                     <button onClick={() => this.setMakeConnection()}>make connection to other user</button>
@@ -41,11 +45,14 @@ class ProfilePage extends React.Component
                     <p>
                         You are connected to user <b>{this.props.userData.Connection}</b>
                     </p>}
+
+                {/*is shown when make connection button is clicked*/}
                 {this.state.makeConnection === true &&
                     <MakeUserConnection
                         Username = {this.props.userData.Username}
 
                      />}
+                {/*list of names saved by user*/}
                 <ListOfSavedNames
                     SavedNamesList = {this.props.userData.SavedNamesList}
                     connection = {this.props.userData.Connection}

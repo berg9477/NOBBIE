@@ -16,22 +16,20 @@ class Header extends React.Component
                 <Link to="/">
                     <img alt='NOBBIE' id="logo" src={nobbieheader}/>
                 </Link>
-                {this.props.isLoggedIn === false &&
-                <p className="loginBTN" onClick={()=>this.props.handleButtonClick(true)}>
-                    Login / Sign up
-                </p>}
-                {this.props.isLoggedIn &&
-                <p className="loginBTN" onClick={()=>this.props.handleButtonClick(true)}>
-                    My Nobby
+
+                {/*Text changes based upon logic if user is logged in or not*/}
+                <p className="loginBTN" onClick={()=>this.props.handleLoginClick(true)}>
+                    {this.props.isLoggedIn === false ?
+                    "Login / Sign up" : "My Nobby"}
                 </p>
-                }
             </div>
+
+                {/*Element is only shown when no user is logged in*/}
                 {this.props.isLoggedIn === false &&
-                <div className="join" onClick={()=>this.props.handleButtonClick(true)}>
+                <div className="join" onClick={()=>this.props.handleLoginClick(true)}>
                     Join Nobbie today and find your name even faster!
                     <div className="triangle"> </div>
                 </div>}
-
             </div>
         )
     }

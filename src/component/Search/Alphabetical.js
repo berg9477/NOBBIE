@@ -1,6 +1,5 @@
 import React from 'react';
 import abcData from "../../data/abcData";
-import "../../styles/search-style.css";
 import firebs from "../../data/firebaseConfig";
 import Button from "../input/Button";
 
@@ -16,6 +15,8 @@ class Alphabetical extends React.Component
         this.handleClickCheck = this.handleClickCheck.bind(this);
     }
 
+    /*Function is triggered when one of the character buttons is clicked
+    it connects to the firebase database and gets all results starting with input character*/
     handleClickCheck(id) {
         document.getElementById('nameSearch').value = "";
         this.props.setSearchResult([])
@@ -29,13 +30,15 @@ class Alphabetical extends React.Component
             query.on("value", (snapshot) => {
                 snapshot.forEach((childSnapshot) => {
                     const data = childSnapshot.val();
+                    /*add results to result list in home.js*/
                     this.props.addToSearchResult(data)
                 })
             })
     }
 
     render() {
-        const abcItems = this.state.abcItems.map((item, index) => <Button id={item.id}  key={index} handleClickCheck={this.handleClickCheck}/>)
+        /*setup the alphabet list*/
+        const abcItems = this.state.abcItems.map((item, index) => <Button id={item.id} key={index} handleClickCheck={this.handleClickCheck}/>)
         return (
             <div>
                 <h3>Search for all names that start with:</h3>

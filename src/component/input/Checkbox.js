@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Component voor het defineren van een slider element
+/*Generic Checkbox component used for Alphabetical buttons in app*/
 const Checkbox = (props) => {
     return (
         <div>

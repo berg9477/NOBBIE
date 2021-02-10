@@ -2,7 +2,7 @@ import React from "react";
 import '../../styles/login-style.css';
 import NewUser from "./NewUser";
 import ExistingUser from "./ExistingUser";
-import ProfilePage from "./profilePage/profilePage";
+import ProfilePage from "./Profile/profilePage";
 
 class Login extends React.Component
 {
@@ -17,8 +17,11 @@ class Login extends React.Component
         return (
             <div className="PanelOverlay">
                 <div className="ModalPanel">
-                    <span className="closeBTN" onClick={()=>this.props.handleButtonClick(false)}>&times;</span>
-                  {this.props.isLoggedIn !== true &&
+                    {/*button for closing the screen*/}
+                    <span className="closeBTN" onClick={()=>this.props.handleLoginClick(false)}>&times;</span>
+
+                    {/*login or create account input fields shown when user is not logged in*/}
+                    {this.props.isLoggedIn !== true &&
                       <div className='Login'>
                           <ExistingUser
                           toggleIsLoggedIn={this.props.toggleIsLoggedIn}
@@ -33,6 +36,7 @@ class Login extends React.Component
                           toggleIsLoggedIn={this.props.toggleIsLoggedIn}
                           />
                       </div>}
+                    {/*when user is logged in shows the profile page*/}
                     {this.props.isLoggedIn === true &&
                         <ProfilePage
                             userData={this.props.userData}
