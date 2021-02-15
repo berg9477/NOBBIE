@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Installatiehandleiding Nobbie React APP
 
-## Available Scripts
+- Omschrijving
 
-In the project directory, you can run:
+Deze applicatie is gemaakt voor het vinden van een babynaam door middel van een zoekmachine. De applicatie is gekoppeld aan een database met ruim 10.000 namen en gebruikers kunnen een profiel aanmaken om namen die ze leuk vinden op te slaan en te delen met een andere gebruiker. Daarnaast kan er met behulp van de koppeling met behindthename.com ook achtergrond informatie opgevraagd worden over een naam en kunnen gebruikers zien aan welke andere namen een specifieke naam gerelateerd is.
 
-### `npm start`
+![](NobbiePage.PNG)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- API Keys
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+REST API Behindthename - REACT_APP_API_KEY=sa583307807
+Firebase REACT_APP_API_KEY_frbs=AIzaSyD_8AQzfoCg84LyqnHywl5QRHolKflfK28
+Firebase REACT_APP_API_KEY_messagingSenderId:1021151795976
 
-### `npm test`
+- Installatie
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Kloon de repo in je terminal door de volgende stappen te volgen.
 
-### `npm run build`
+Typ git clone https://github.com/berg9477/NOBBIE.git in je terminal
+druk op enter.
+Hiermee worden alle bestanden van de github naar de locale pc gekopieerd.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ga door middel van cd in je terminal naar de map die je zojuist hebt gemaakt.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Typ npm install om alle afhankelijkheden te installeren.
+Typ npm install react-router-dom –save om routing in de webapp te installeren.
+Typ	npm install axios om Rest API toepassing van axios te installeren.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Als laatste, typ npm start om de app lokaal uit te voeren.
 
-### `npm run eject`
+Om de code te bekijken, open je het project in je favoriete code-editor!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Inloggen
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Maak zelf een nieuw account aan door te klikken Login / Sign up en alle velden onder New at Nobbie in te vullen, of gebruik een van de bestaande test accounts:
+Username: tester
+Password: test
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- NPM Commando's
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+npm start
+Draait de app vanuit development modus
+Open http://localhost:3000 om het in de browser te bekijken.
