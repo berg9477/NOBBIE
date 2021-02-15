@@ -22,11 +22,10 @@ class NewUser extends React.Component
         const pass = document.getElementById('passwordNew').value;
 
         let usernameExists = null;
-        console.log(firstname)
         /*All fields are required and need to have a value*/
         if(firstname === "" || lastname === "" || email === "" || username === "" || pass === ""){
             this.setState({resultCreate: false})
-            this.setState({failedMessage:"Oeps! Seems like you forgot to fill in one field"})
+            this.setState({failedMessage:"Oeps! Seems like you forgot to fill in one or more fields"})
         }
         else{
             /*Firebase does not accept these characters for the username so need to be filtered out*/
